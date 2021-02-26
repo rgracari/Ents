@@ -1,0 +1,27 @@
+name: Ents Build & Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🤞
+        uses: actions/checkout@v2
+
+      - name: Setup .NET 🔧
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+
+      - name: Restore dependencies 🧰
+        run: dotnet restore
+
+      - name: Build app 🚀
+        run: dotnet build -c Release --no-restore
+
+      - name: Launch Tests 🧪
+        run: dotnet test

@@ -1,5 +1,6 @@
 ﻿create a dense vector
 
+generate docs auto, codecov
 create the world
 create the component manager
 create the entity manager

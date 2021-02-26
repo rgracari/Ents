@@ -24,4 +24,4 @@ jobs:
         run: dotnet build -c Release --no-restore
 
       - name: Launch Tests 🧪
-        run: dotnet test
+        run: dotnet test -c Release --no-build

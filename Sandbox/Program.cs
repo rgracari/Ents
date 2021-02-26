@@ -1,11 +1,5 @@
 ﻿#define LOG_INFO
 
-using Ents;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-
 // ECS      -> Archetypes, Queries, Components, Entities, Systems, Worlds, Groups
 // Advenced -> Order of group execution, struct/class dif, sharedComponent
 // Quality  -> profiling, tests, codecov, documentation
@@ -30,7 +24,7 @@ using System.Threading;
 /// 
 /// </summary>
 
-namespace Sandbox
+namespace Ents.Sandbox
 {
     public class Program
     {

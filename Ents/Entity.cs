@@ -4,20 +4,11 @@ using System.Text;
 
 namespace Ents
 {
+    /// <summary>
+    /// This is an Entity Struct
+    /// </summary>
     public struct Entity
     {
         public int id;
-    }
-
-    public struct Position
-    {
-        public int x;
-        public int y;
-    }
-
-    public struct Velocity
-    {
-        public int x;
-        public int y;
     }
 }

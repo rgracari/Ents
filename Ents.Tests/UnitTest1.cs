@@ -12,9 +12,9 @@ namespace Ents.Tests
         }
 
         [Fact]
-        public void FailingTest()
+        public void NotFailingTest()
         {
-            Assert.Equal(5, Add(2, 2));
+            Assert.Equal(4, Add(2, 2));
         }
 
         public int Add(int x, int y)

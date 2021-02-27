@@ -5,6 +5,9 @@
 // Quality  -> profiling, tests, codecov, documentation
 // Generational arena
 
+
+using Ents.Storage;
+using System;
 /// <summary>
 /// 
 /// World world = new World()
@@ -23,13 +26,18 @@
 ///     ref var mob = ref entity.Get<Mob>();
 /// 
 /// </summary>
-
 namespace Ents.Sandbox
 {
     public class Program
     {
         static void Main( string[] args)
         {
+            DenseList<string> denseList = new DenseList<string>();
+            Entity entity = new Entity(10);
+
+            denseList.Add(entity, "data");
+
+            Console.WriteLine(denseList);
         }
     }
 }

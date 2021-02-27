@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Storages\" />
+    <ProjectReference Include="..\Ents\Ents.csproj" />
   </ItemGroup>
 
 </Project>

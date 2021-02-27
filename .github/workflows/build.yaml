@@ -25,3 +25,6 @@ jobs:
 
       - name: Launch Tests 🧪
         run: dotnet test -c Release --no-build
+
+      - name: Define CodeCoverage
+        uses: codecov/codecov-action@v1

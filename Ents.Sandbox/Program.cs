@@ -33,9 +33,12 @@ namespace Ents.Sandbox
         static void Main( string[] args)
         {
             DenseList<string> denseList = new DenseList<string>();
-            Entity entity = new Entity(10);
+            string expected = "data";
+            int index = 0;
 
-            denseList.Add(entity, "data");
+            denseList.Add(index, expected);
+
+            string val = denseList.Get(index);
 
             Console.WriteLine(denseList);
         }

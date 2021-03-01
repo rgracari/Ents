@@ -1,63 +1,89 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Ents.Storage
 {
-    /// <summary>
-    /// DenseListStorage allows you to create a dense datastructure
-    /// </summary>
+    public class DenseListOutOfBoundException : Exception
+    {
+        public DenseListOutOfBoundException(string message)
+            : base(message)
+        {
+        }
+    }
+
     public class DenseList<T>
     {
-        private List<int> _lookup;
+        private List<int?> _lookup;
         private List<T> _data;
+        private const int MAX_SIZE = 1_000_000;
 
-        /// <summary>
-        /// The basic constructor of DenseListStorage
-        /// </summary>
+        public int DataCount { get => _data.Count; }
+
+        public int LookupCount { get => _lookup.Count; }
+
         public DenseList()
         {
-            _lookup = new List<int>();
+            _lookup = new List<int?>();
+            _lookup.AddRange(new int?[4]); // Default size of 4
             _data = new List<T>();
         }
 
-        /// <summary>
-        /// Adding an item in the storage class
-        /// </summary>
-        /// <param name="entity">Entity is needed to get the parameters</param>
-        /// <param name="item">The data you want to insert in the dense storage</param>
-        public void Add(Entity entity, T item)
+        public void Add(int id, T item)
         {
-            //_data.Add(item);
-            if (_lookup.Count < entity.id)
+            if (item == null)
             {
-                int diff = entity.id - _lookup.Count;
-                _lookup.AddRange(new int[diff]);
-
-                //List<string> llist = new List<string>();
-                //_lookup.ForEach((sa) => Console.WriteLine(sa));
-                //Console.WriteLine("Lookup not big enough");
+                throw new ArgumentNullException("This method does not accept null data");
             }
-            //_lookup.Insert(entity.id, _data.Count);
+
+            if (id > MAX_SIZE)
+            {
+                throw new DenseListOutOfBoundException($"The Id Must be lowet than: {MAX_SIZE}");
+            }
+
+            if (id > _lookup.Count)
+            {
+                int diff = id - _lookup.Count;
+                _lookup.AddRange(new int?[diff + 1]);
+            }
+
+            _data.Add(item);
+            _lookup[id] = _data.Count - 1;
         }
 
-        public void Remove(Entity entity)
+        public void Remove(int id)
         {
-            _data.RemoveAt(_lookup[entity.id]);
-            _lookup.RemoveAt(entity.id);
+            _data.RemoveAt(GetDataId(id));
         }
 
-        public T Get(Entity entity)
+        public T Get(int id)
         {
-            return _data[_lookup[entity.id]];
+            return _data[GetDataId(id)];
+        }
+
+        private int GetDataId(int id)
+        {
+            return _lookup[id] ?? throw new ArgumentException("There is no data associated with this id");
         }
 
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("Index - Lookup table - Data");
             for (int i = 0; i < _lookup.Count; i++)
             {
-                stringBuilder.AppendLine($"[{i}] -> [{_lookup[i]}] -> [{i}]");
+                if (_lookup[i].HasValue)
+                {
+                    int idData = _lookup[i].GetValueOrDefault();
+
+                    stringBuilder.Append($"{i} -> [{_lookup[i]}]");
+                    stringBuilder.AppendLine($" -> [{_data[idData]}]");
+                }
+                else
+                {
+                    stringBuilder.AppendLine($"{i} -> [{_lookup[i]}]");
+                }
             }
             return stringBuilder.ToString();
         }

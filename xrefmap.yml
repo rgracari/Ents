@@ -1,0 +1,231 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Ents
+  name: Ents
+  href: api/Ents.html
+  commentId: N:Ents
+  fullName: Ents
+  nameWithType: Ents
+- uid: Ents.Entity
+  name: Entity
+  href: api/Ents.Entity.html
+  commentId: T:Ents.Entity
+  fullName: Ents.Entity
+  nameWithType: Entity
+- uid: Ents.Entity.#ctor(System.Int32)
+  name: Entity(Int32)
+  href: api/Ents.Entity.html#Ents_Entity__ctor_System_Int32_
+  commentId: M:Ents.Entity.#ctor(System.Int32)
+  fullName: Ents.Entity.Entity(System.Int32)
+  nameWithType: Entity.Entity(Int32)
+- uid: Ents.Entity.#ctor*
+  name: Entity
+  href: api/Ents.Entity.html#Ents_Entity__ctor_
+  commentId: Overload:Ents.Entity.#ctor
+  isSpec: "True"
+  fullName: Ents.Entity.Entity
+  nameWithType: Entity.Entity
+- uid: Ents.Entity.id
+  name: id
+  href: api/Ents.Entity.html#Ents_Entity_id
+  commentId: F:Ents.Entity.id
+  fullName: Ents.Entity.id
+  nameWithType: Entity.id
+- uid: Ents.EntityManager
+  name: EntityManager
+  href: api/Ents.EntityManager.html
+  commentId: T:Ents.EntityManager
+  fullName: Ents.EntityManager
+  nameWithType: EntityManager
+- uid: Ents.EntityManager.#ctor
+  name: EntityManager()
+  href: api/Ents.EntityManager.html#Ents_EntityManager__ctor
+  commentId: M:Ents.EntityManager.#ctor
+  fullName: Ents.EntityManager.EntityManager()
+  nameWithType: EntityManager.EntityManager()
+- uid: Ents.EntityManager.#ctor*
+  name: EntityManager
+  href: api/Ents.EntityManager.html#Ents_EntityManager__ctor_
+  commentId: Overload:Ents.EntityManager.#ctor
+  isSpec: "True"
+  fullName: Ents.EntityManager.EntityManager
+  nameWithType: EntityManager.EntityManager
+- uid: Ents.IComponent
+  name: IComponent
+  href: api/Ents.IComponent.html
+  commentId: T:Ents.IComponent
+  fullName: Ents.IComponent
+  nameWithType: IComponent
+- uid: Ents.Storage
+  name: Ents.Storage
+  href: api/Ents.Storage.html
+  commentId: N:Ents.Storage
+  fullName: Ents.Storage
+  nameWithType: Ents.Storage
+- uid: Ents.Storage.DenseList`1
+  name: DenseList<T>
+  href: api/Ents.Storage.DenseList-1.html
+  commentId: T:Ents.Storage.DenseList`1
+  name.vb: DenseList(Of T)
+  fullName: Ents.Storage.DenseList<T>
+  fullName.vb: Ents.Storage.DenseList(Of T)
+  nameWithType: DenseList<T>
+  nameWithType.vb: DenseList(Of T)
+- uid: Ents.Storage.DenseList`1.#ctor
+  name: DenseList()
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1__ctor
+  commentId: M:Ents.Storage.DenseList`1.#ctor
+  fullName: Ents.Storage.DenseList<T>.DenseList()
+  fullName.vb: Ents.Storage.DenseList(Of T).DenseList()
+  nameWithType: DenseList<T>.DenseList()
+  nameWithType.vb: DenseList(Of T).DenseList()
+- uid: Ents.Storage.DenseList`1.#ctor*
+  name: DenseList
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1__ctor_
+  commentId: Overload:Ents.Storage.DenseList`1.#ctor
+  isSpec: "True"
+  fullName: Ents.Storage.DenseList<T>.DenseList
+  fullName.vb: Ents.Storage.DenseList(Of T).DenseList
+  nameWithType: DenseList<T>.DenseList
+  nameWithType.vb: DenseList(Of T).DenseList
+- uid: Ents.Storage.DenseList`1.Add(System.Int32,`0)
+  name: Add(Int32, T)
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_Add_System_Int32__0_
+  commentId: M:Ents.Storage.DenseList`1.Add(System.Int32,`0)
+  fullName: Ents.Storage.DenseList<T>.Add(System.Int32, T)
+  fullName.vb: Ents.Storage.DenseList(Of T).Add(System.Int32, T)
+  nameWithType: DenseList<T>.Add(Int32, T)
+  nameWithType.vb: DenseList(Of T).Add(Int32, T)
+- uid: Ents.Storage.DenseList`1.Add*
+  name: Add
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_Add_
+  commentId: Overload:Ents.Storage.DenseList`1.Add
+  isSpec: "True"
+  fullName: Ents.Storage.DenseList<T>.Add
+  fullName.vb: Ents.Storage.DenseList(Of T).Add
+  nameWithType: DenseList<T>.Add
+  nameWithType.vb: DenseList(Of T).Add
+- uid: Ents.Storage.DenseList`1.DataCount
+  name: DataCount
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_DataCount
+  commentId: P:Ents.Storage.DenseList`1.DataCount
+  fullName: Ents.Storage.DenseList<T>.DataCount
+  fullName.vb: Ents.Storage.DenseList(Of T).DataCount
+  nameWithType: DenseList<T>.DataCount
+  nameWithType.vb: DenseList(Of T).DataCount
+- uid: Ents.Storage.DenseList`1.DataCount*
+  name: DataCount
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_DataCount_
+  commentId: Overload:Ents.Storage.DenseList`1.DataCount
+  isSpec: "True"
+  fullName: Ents.Storage.DenseList<T>.DataCount
+  fullName.vb: Ents.Storage.DenseList(Of T).DataCount
+  nameWithType: DenseList<T>.DataCount
+  nameWithType.vb: DenseList(Of T).DataCount
+- uid: Ents.Storage.DenseList`1.Get(System.Int32)
+  name: Get(Int32)
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_Get_System_Int32_
+  commentId: M:Ents.Storage.DenseList`1.Get(System.Int32)
+  fullName: Ents.Storage.DenseList<T>.Get(System.Int32)
+  fullName.vb: Ents.Storage.DenseList(Of T).Get(System.Int32)
+  nameWithType: DenseList<T>.Get(Int32)
+  nameWithType.vb: DenseList(Of T).Get(Int32)
+- uid: Ents.Storage.DenseList`1.Get*
+  name: Get
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_Get_
+  commentId: Overload:Ents.Storage.DenseList`1.Get
+  isSpec: "True"
+  fullName: Ents.Storage.DenseList<T>.Get
+  fullName.vb: Ents.Storage.DenseList(Of T).Get
+  nameWithType: DenseList<T>.Get
+  nameWithType.vb: DenseList(Of T).Get
+- uid: Ents.Storage.DenseList`1.LookupCount
+  name: LookupCount
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_LookupCount
+  commentId: P:Ents.Storage.DenseList`1.LookupCount
+  fullName: Ents.Storage.DenseList<T>.LookupCount
+  fullName.vb: Ents.Storage.DenseList(Of T).LookupCount
+  nameWithType: DenseList<T>.LookupCount
+  nameWithType.vb: DenseList(Of T).LookupCount
+- uid: Ents.Storage.DenseList`1.LookupCount*
+  name: LookupCount
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_LookupCount_
+  commentId: Overload:Ents.Storage.DenseList`1.LookupCount
+  isSpec: "True"
+  fullName: Ents.Storage.DenseList<T>.LookupCount
+  fullName.vb: Ents.Storage.DenseList(Of T).LookupCount
+  nameWithType: DenseList<T>.LookupCount
+  nameWithType.vb: DenseList(Of T).LookupCount
+- uid: Ents.Storage.DenseList`1.Remove(System.Int32)
+  name: Remove(Int32)
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_Remove_System_Int32_
+  commentId: M:Ents.Storage.DenseList`1.Remove(System.Int32)
+  fullName: Ents.Storage.DenseList<T>.Remove(System.Int32)
+  fullName.vb: Ents.Storage.DenseList(Of T).Remove(System.Int32)
+  nameWithType: DenseList<T>.Remove(Int32)
+  nameWithType.vb: DenseList(Of T).Remove(Int32)
+- uid: Ents.Storage.DenseList`1.Remove*
+  name: Remove
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_Remove_
+  commentId: Overload:Ents.Storage.DenseList`1.Remove
+  isSpec: "True"
+  fullName: Ents.Storage.DenseList<T>.Remove
+  fullName.vb: Ents.Storage.DenseList(Of T).Remove
+  nameWithType: DenseList<T>.Remove
+  nameWithType.vb: DenseList(Of T).Remove
+- uid: Ents.Storage.DenseList`1.ToString
+  name: ToString()
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_ToString
+  commentId: M:Ents.Storage.DenseList`1.ToString
+  fullName: Ents.Storage.DenseList<T>.ToString()
+  fullName.vb: Ents.Storage.DenseList(Of T).ToString()
+  nameWithType: DenseList<T>.ToString()
+  nameWithType.vb: DenseList(Of T).ToString()
+- uid: Ents.Storage.DenseList`1.ToString*
+  name: ToString
+  href: api/Ents.Storage.DenseList-1.html#Ents_Storage_DenseList_1_ToString_
+  commentId: Overload:Ents.Storage.DenseList`1.ToString
+  isSpec: "True"
+  fullName: Ents.Storage.DenseList<T>.ToString
+  fullName.vb: Ents.Storage.DenseList(Of T).ToString
+  nameWithType: DenseList<T>.ToString
+  nameWithType.vb: DenseList(Of T).ToString
+- uid: Ents.Storage.DenseListOutOfBoundException
+  name: DenseListOutOfBoundException
+  href: api/Ents.Storage.DenseListOutOfBoundException.html
+  commentId: T:Ents.Storage.DenseListOutOfBoundException
+  fullName: Ents.Storage.DenseListOutOfBoundException
+  nameWithType: DenseListOutOfBoundException
+- uid: Ents.Storage.DenseListOutOfBoundException.#ctor(System.String)
+  name: DenseListOutOfBoundException(String)
+  href: api/Ents.Storage.DenseListOutOfBoundException.html#Ents_Storage_DenseListOutOfBoundException__ctor_System_String_
+  commentId: M:Ents.Storage.DenseListOutOfBoundException.#ctor(System.String)
+  fullName: Ents.Storage.DenseListOutOfBoundException.DenseListOutOfBoundException(System.String)
+  nameWithType: DenseListOutOfBoundException.DenseListOutOfBoundException(String)
+- uid: Ents.Storage.DenseListOutOfBoundException.#ctor*
+  name: DenseListOutOfBoundException
+  href: api/Ents.Storage.DenseListOutOfBoundException.html#Ents_Storage_DenseListOutOfBoundException__ctor_
+  commentId: Overload:Ents.Storage.DenseListOutOfBoundException.#ctor
+  isSpec: "True"
+  fullName: Ents.Storage.DenseListOutOfBoundException.DenseListOutOfBoundException
+  nameWithType: DenseListOutOfBoundException.DenseListOutOfBoundException
+- uid: Ents.World
+  name: World
+  href: api/Ents.World.html
+  commentId: T:Ents.World
+  fullName: Ents.World
+  nameWithType: World
+- uid: Ents.World.#ctor
+  name: World()
+  href: api/Ents.World.html#Ents_World__ctor
+  commentId: M:Ents.World.#ctor
+  fullName: Ents.World.World()
+  nameWithType: World.World()
+- uid: Ents.World.#ctor*
+  name: World
+  href: api/Ents.World.html#Ents_World__ctor_
+  commentId: Overload:Ents.World.#ctor
+  isSpec: "True"
+  fullName: Ents.World.World
+  nameWithType: World.World

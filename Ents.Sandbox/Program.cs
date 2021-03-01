@@ -32,15 +32,7 @@ namespace Ents.Sandbox
     {
         static void Main( string[] args)
         {
-            DenseList<string> denseList = new DenseList<string>();
-            string expected = "data";
-            int index = 0;
-
-            denseList.Add(index, expected);
-
-            string val = denseList.Get(index);
-
-            Console.WriteLine(denseList);
+            World world = new World();
         }
     }
 }

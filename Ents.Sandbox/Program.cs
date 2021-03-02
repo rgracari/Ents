@@ -7,12 +7,11 @@
 
 
 using Ents.Storage;
+using Ents.Storages;
 using System;
 /// <summary>
 /// 
 /// World world = new World()
-/// world.register<Position>();
-/// world.register<Velocity>();
 /// 
 /// Entity player = world.CreateEntity();
 /// world.AddComponent<Position>(player, 1.0, 1.0);
@@ -28,11 +27,52 @@ using System;
 /// </summary>
 namespace Ents.Sandbox
 {
+    public struct Position : IComponent
+    {
+        public int x;
+        public int y;
+
+        public Position(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        public override string ToString()
+        {
+            return $"Position -> x: {x}, y: {y}";
+        }
+    }
+
+    public struct Velocity : IComponent
+    {
+        public int x;
+        public int y;
+
+        public Velocity(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        public override string ToString()
+        {
+            return $"Velocity -> x: {x}, y: {y}";
+        }
+    }
+
     public class Program
     {
-        static void Main( string[] args)
+        static void Main(string[] args)
         {
-            World world = new World();
+            EntityManager entityManager = new EntityManager();
+
+            Entity entity = entityManager.Create();
+
+            entityManager.AddComponent(entity, typeof(Position));
+            entityManager.AddComponent(entity, typeof(Velocity));
+
+            Console.WriteLine(entityManager);
         }
     }
 }

@@ -138,7 +138,7 @@ namespace Ents.Tests.Storages
             DenseList<string> denseList = new DenseList<string>();
             denseList.Add(20, "data");
 
-            Assert.Throws<ArgumentException>(() =>
+            Assert.Throws<NoDataAssociatedWithThisLookupId>(() =>
             {
                 denseList.Get(15);
             });
@@ -179,7 +179,7 @@ namespace Ents.Tests.Storages
         {
             DenseList<string> denseList = new DenseList<string>();
 
-            Assert.Throws<ArgumentException>(() =>
+            Assert.Throws<NoDataAssociatedWithThisLookupId>(() =>
             {
                 denseList.Remove(1);
             });
@@ -198,6 +198,58 @@ namespace Ents.Tests.Storages
             });
         }
 
-        // Remove wrongs ids
+        [Fact]
+        public void Remove_TryRemoveSomethingOutsiteOfTheLookupRange_ThrowNoDataAssociatedWithThisLookupId()
+        {
+            DenseList<string> denseList = new DenseList<string>();
+
+            // The default size of a lookup is 4
+            Assert.Throws<LookupIsSmallerThanGivenId>(() => denseList.Remove(5));
+        }
+
+        [Fact]
+        public void Remove_RemoveDataBeforeAntotherOne_GetSameCorrectData()
+        {
+            DenseList<string> denseList = new DenseList<string>();
+
+            denseList.Add(0, "data0");
+            denseList.Add(1, "data1");
+
+            denseList.Remove(0);
+
+            Assert.Equal("data1", denseList.Get(1));
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(4)]
+        [InlineData(10)]
+        public void HasData_WithPreviousData_ReturnTrue(int id)
+        {
+            DenseList<string> denseList = new DenseList<string>();
+            Entity entity = new Entity(id);
+
+            denseList.Add(entity.id, "data");
+
+            Assert.True(denseList.HasData(entity.id));
+        }
+
+        [Fact]
+        public void HasData_WithoutPreviousData_ReturnFalse()
+        {
+            DenseList<string> denseList = new DenseList<string>();
+            Entity entity = new Entity(0);
+
+            Assert.False(denseList.HasData(entity.id));
+        }
+
+        [Fact]
+        public void HasData_ImpossibleNegativeId_ReturnFalse()
+        {
+            DenseList<string> denseList = new DenseList<string>();
+            Entity entity = new Entity(0);
+
+            Assert.False(denseList.HasData(-1));
+        }
     }
 }

@@ -15,17 +15,25 @@ namespace Ents.Tests
             Assert.IsType<World>(world);
         }
 
-        /*[Fact]
-        public void World_CreateAnBasicEntity_EntityWithIdZero()
+        [Fact]
+        public void CreateEntity_WithoutArgs_EntityWithIdZero()
         {
-            // Arrage
+            World world = new World();
+            Entity entity = world.CreateEntity();
+
+            Entity expected = new Entity(0);
+
+            Assert.Equal(expected, entity);
+        }
+
+        [Fact]
+        public void AddComponent_re()
+        {
             World world = new World();
 
-            // Act
-            //Entity entity = world.CreateEntity();
+            Entity entity = world.CreateEntity();
 
-            // Assert
-            Assert.Equal(new Entity(0), entity);
-        }*/
+            world.AddComponent(entity, typeof(Velocity));
+        }
     }
 }

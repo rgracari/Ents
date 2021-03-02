@@ -11,6 +11,12 @@ namespace Ents.Tests
         public int y;
     }
 
+    public struct GoodVelocityTest : IComponent
+    {
+        public int x;
+        public int y;
+    }
+
     public struct WrongPositionTest
     {
         public int x;
@@ -97,7 +103,7 @@ namespace Ents.Tests
 
             Entity entity = entityManager.Create();
 
-            Assert.Throws<EntityComponentNotImplementIComponent>(() =>
+            Assert.Throws<ComponentNotImplementIComponent>(() =>
             {
                 entityManager.AddComponent(entity, componentType);
             });
@@ -186,6 +192,82 @@ namespace Ents.Tests
             Entity wrongEntity = new Entity(-1);
 
             Assert.Throws<EntityIdDoesNotExist>(() => entityManager.EntityHasComponent(wrongEntity, componentType));
+        }
+
+        [Theory]
+        [InlineData(typeof(GoodPositionTest))]
+        [InlineData(typeof(GoodVelocityTest))]
+        public void GetEntityComponents_EntityWithOneComponent_ReturnTheComponentType(Type componentType)
+        {
+            EntityManager entityManager = new EntityManager();
+            Entity entity = entityManager.Create();
+
+            entityManager.AddComponent(entity, componentType);
+            List<Type> expected = new List<Type>();
+            expected.Add(componentType);
+
+            Assert.Equal(expected, entityManager.GetEntityComponents(entity));
+        }
+
+        [Fact]
+        public void GetEntityComponents_EntityWithoutComponent_EmptyList()
+        {
+            EntityManager entityManager = new EntityManager();
+            Entity entity = entityManager.Create();
+
+            List<Type> expected = new List<Type>();
+
+            Assert.Equal(expected, entityManager.GetEntityComponents(entity));
+        }
+
+        [Theory]
+        [InlineData(-1)]
+        [InlineData(1000)]
+        [InlineData(-100)]
+        public void GetEntityComponents_WrongEntityIds_Throw(int wrongId)
+        {
+            EntityManager entityManager = new EntityManager();
+
+            Entity entity = new Entity(wrongId);
+
+            Assert.Throws<EntityIdDoesNotExist>(() => entityManager.GetEntityComponents(entity));
+        }
+
+        [Fact]
+        public void GetEntityComponents_EntityWithThreeComponent_ReturnMultipleComponentsType()
+        {
+            EntityManager entityManager = new EntityManager();
+            Type componentType = typeof(GoodPositionTest);
+            Entity entity = entityManager.Create();
+
+            entityManager.AddComponent(entity, componentType);
+            entityManager.AddComponent(entity, componentType);
+            entityManager.AddComponent(entity, componentType);
+
+            List<Type> expected = new List<Type>();
+            expected.Add(componentType);
+            expected.Add(componentType);
+            expected.Add(componentType);
+
+            Assert.Equal(expected, entityManager.GetEntityComponents(entity));
+        }
+
+        [Fact]
+        public void GetEntityComponents_EntityWithDifferentComponents_ReturnTheComponentType()
+        {
+            EntityManager entityManager = new EntityManager();
+            Type componentTypePosition = typeof(GoodPositionTest);
+            Type componentTypeVelocity = typeof(GoodVelocityTest);
+            Entity entity = entityManager.Create();
+
+            entityManager.AddComponent(entity, componentTypePosition);
+            entityManager.AddComponent(entity, componentTypeVelocity);
+
+            List<Type> expected = new List<Type>();
+            expected.Add(componentTypePosition);
+            expected.Add(componentTypeVelocity);
+
+            Assert.Equal(expected, entityManager.GetEntityComponents(entity));
         }
     }
 }

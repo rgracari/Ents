@@ -83,7 +83,7 @@ namespace Ents
 
             if (!(typeof(IComponent).IsAssignableFrom(componentType)))
             {
-                throw new EntityComponentNotImplementIComponent("The component");
+                throw new ComponentNotImplementIComponent("The component");
             }
 
             _entities[entity].Add(componentType);
@@ -113,6 +113,14 @@ namespace Ents
             CheckIfEntityExists(entity);
 
             return _entities[entity].Exists((type) => type == componentType);
+        }
+
+        // Mettre des commentaires
+        public List<Type> GetEntityComponents(Entity entity)
+        {
+            CheckIfEntityExists(entity);
+
+            return _entities[entity];
         }
 
         private void CheckIfEntityExists(Entity entity)
@@ -166,9 +174,9 @@ namespace Ents
         }
     }
 
-    public class EntityComponentNotImplementIComponent : Exception
+    public class ComponentNotImplementIComponent : Exception
     {
-        public EntityComponentNotImplementIComponent(string message)
+        public ComponentNotImplementIComponent(string message)
             : base(message)
         {
         }

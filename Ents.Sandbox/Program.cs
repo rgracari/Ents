@@ -65,14 +65,22 @@ namespace Ents.Sandbox
     {
         static void Main(string[] args)
         {
-            EntityManager entityManager = new EntityManager();
+            World world = new World();
 
-            Entity entity = entityManager.Create();
+            Entity entity = world.CreateEntity();
+            world.AddComponent(entity, typeof(Velocity));
+            world.AddComponent(entity, typeof(Position));
 
-            entityManager.AddComponent(entity, typeof(Position));
-            entityManager.AddComponent(entity, typeof(Velocity));
+            Entity entity1 = world.CreateEntity();
+            world.AddComponent(entity1, typeof(Velocity));
+            world.AddComponent(entity1, typeof(Position));
 
-            Console.WriteLine(entityManager);
+            Console.WriteLine(world);
+
+            //world.DestroyEntity(entity);
+            world.DestroyEntity(entity);
+
+            Console.WriteLine(world);
         }
     }
 }

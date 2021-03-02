@@ -5,14 +5,6 @@ using System.Text;
 
 namespace Ents.Storage
 {
-    public class DenseListOutOfBoundException : Exception
-    {
-        public DenseListOutOfBoundException(string message)
-            : base(message)
-        {
-        }
-    }
-
     /// <summary>
     /// A dense list of data storage. This storage uses an intern lookup table enabling the
     /// data to be packed in an list continuausly.
@@ -38,7 +30,7 @@ namespace Ents.Storage
         private List<T> _data;
 
         /// <value>The max size that the lookup table can take</value>
-        private const int MAX_SIZE = 1_000_000;
+        private const int MAX_SIZE = 2_000_000;
 
         public int DataCount { get => _data.Count; }
 
@@ -55,7 +47,7 @@ namespace Ents.Storage
         /// Adding an element in the storage.
         /// </summary>
         /// <param name="id">The id that is used to reference the data in the storage.</param>
-        /// <param name="item">The data that will be stored in the storage.</param>
+        /// <param name="data">The data that will be stored in the storage.</param>
         public void Add(int id, T data)
         {
             if (data == null)
@@ -73,6 +65,10 @@ namespace Ents.Storage
                 int diff = id - _lookup.Count;
                 _lookup.AddRange(new int?[diff + 1]);
             }
+            if (id == _lookup.Count)
+            {
+                _lookup.Add(new int?());
+            }
 
             _data.Add(data);
             _lookup[id] = _data.Count - 1;
@@ -85,6 +81,11 @@ namespace Ents.Storage
         public void Remove(int id)
         {
             _data.RemoveAt(GetDataId(id));
+            _lookup[id] = null;
+            for (int i = id + 1; i < _lookup.Count; i++)
+            {
+                _lookup[i] -= 1;
+            }
         }
 
         /// <summary>
@@ -96,10 +97,32 @@ namespace Ents.Storage
         {
             return _data[GetDataId(id)];
         }
+        
+        /// <summary>
+        /// Determine if there is data associated to an ID.
+        /// Internally we need to know if there is data in the lookup table and in the data table.
+        /// </summary>
+        /// <param name="id">The id possibly associated to the data.</param>
+        /// <returns>True if there is data associted to the id, false otherwise</returns>
+        public bool HasData(int id)
+        {
+            if (id < _lookup.Count && id >= 0)
+            {
+                if (_lookup[id] != null)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         private int GetDataId(int id)
         {
-            return _lookup[id] ?? throw new ArgumentException("There is no data associated with this id");
+            if (id >= _lookup.Count)
+            {
+                throw new LookupIsSmallerThanGivenId("The id given is higher than the current lookup");
+            }
+            return _lookup[id] ?? throw new NoDataAssociatedWithThisLookupId("There is no data associated with this id");
         }
 
         /// <summary>
@@ -115,6 +138,7 @@ namespace Ents.Storage
                 if (_lookup[i].HasValue)
                 {
                     int idData = _lookup[i].GetValueOrDefault();
+                    Console.WriteLine($"idData: {idData}");
 
                     stringBuilder.Append($"{i} -> [{_lookup[i]}]");
                     stringBuilder.AppendLine($" -> [{_data[idData]}]");
@@ -125,6 +149,30 @@ namespace Ents.Storage
                 }
             }
             return stringBuilder.ToString();
+        }
+    }
+
+    public class NoDataAssociatedWithThisLookupId : Exception
+    {
+        public NoDataAssociatedWithThisLookupId(string message)
+            : base(message)
+        {
+        }
+    }
+
+    public class LookupIsSmallerThanGivenId : Exception
+    {
+        public LookupIsSmallerThanGivenId(string message)
+            : base(message)
+        {
+        }
+    }
+
+    public class DenseListOutOfBoundException : Exception
+    {
+        public DenseListOutOfBoundException(string message)
+            : base(message)
+        {
         }
     }
 }

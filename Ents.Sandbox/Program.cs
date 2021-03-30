@@ -4,14 +4,6 @@
 // Advenced -> Order of group execution, struct/class dif, sharedComponent
 // Quality  -> profiling, tests, codecov, documentation
 
-///<summary>
-/// TODO:
-/// Write comments for ComponentManager
-/// Test if method<GenericType>() is better than method(typeof(type))
-/// 
-/// </summary>
-
-
 using System;
 
 /// <summary>

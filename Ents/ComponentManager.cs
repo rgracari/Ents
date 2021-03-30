@@ -5,6 +5,13 @@ using System.Text;
 
 namespace Ents
 {
+    /// <summary>
+    /// Manage all the components in a defined world with this class.
+    /// 
+    /// The ComponentManager automaticly creates storage for differents types of
+    /// IComponent when needed internally.
+    /// All the components need to refer to an existing Entity.
+    /// </summary>
     public class ComponentManager
     {
         private Dictionary<Type, DenseList<IComponent>> _components;
@@ -14,6 +21,13 @@ namespace Ents
             _components = new Dictionary<Type, DenseList<IComponent>>();
         }
 
+        /// <summary>
+        /// Store a defined component that refers to an actual Entity in the ComponentManager.
+        /// The compoent can be accessed and modified latter.
+        /// </summary>
+        /// <param name="entity">The Entity that own the component.</param>
+        /// <param name="componentType">The defined type of the component.</param>
+        /// <param name="args">The arguments needed by the component when construted.</param>
         public void AddComponent(Entity entity, Type componentType, params object[] args)
         {
             if (componentType == null)
@@ -32,6 +46,12 @@ namespace Ents
             _components[componentType].Add(entity.id, (IComponent)Activator.CreateInstance(componentType, args));
         }
 
+        /// <summary>
+        /// Remove a component in the storage where it belong to.
+        /// You will be not able to access it from the entity.
+        /// </summary>
+        /// <param name="entity">The Entity that own the component.</param>
+        /// <param name="componentType">The defined type of the component.</param>
         public void RemoveComponent(Entity entity, Type componentType)
         {
             if (componentType == null)
@@ -54,6 +74,12 @@ namespace Ents
             }
         }
 
+        /// <summary>
+        /// Retrieve the component asked by its type from an Entity. The component must exist.
+        /// </summary>
+        /// <typeparam name="T">The type of the component wanted to be retrived. Must be a IComponent.</typeparam>
+        /// <param name="entity">The Entity that own the component.</param>
+        /// <returns>The component </returns>
         public T GetComponent<T>(Entity entity) where T : IComponent
         {
             if (!HasComponent(entity, typeof(T)))
@@ -64,6 +90,12 @@ namespace Ents
             return (T)_components[typeof(T)].Get(entity.id);
         }
 
+        /// <summary>
+        /// Check if the Entity is associated to a specified Component.
+        /// </summary>
+        /// <param name="entity">The Entity that own the component.</param>
+        /// <param name="componentType">The defined type of the component.</param>
+        /// <returns>True if the entity has the component False otherwise.</returns>
         public bool HasComponent(Entity entity, Type componentType)
         {
             if (!_components.ContainsKey(componentType))

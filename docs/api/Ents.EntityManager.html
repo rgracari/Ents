@@ -1,0 +1,509 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class EntityManager
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class EntityManager
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Ents.EntityManager">
+  
+  
+  <h1 id="Ents_EntityManager" data-uid="Ents.EntityManager" class="text-break">Class EntityManager
+  </h1>
+  <div class="markdown level0 summary"><p>A class that allows to easly manage the entities.
+At runtime all entities will have an unique Id and an list of component types.
+You must create Entity from the EntityManager. He is smart enough to recycle Ids
+and get quite fast the components from an entity.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">EntityManager</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Ents.html">Ents</a></h6>
+  <h6><strong>Assembly</strong>: Ents.dll</h6>
+  <h5 id="Ents_EntityManager_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class EntityManager</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/rgracari/Ents/new/main/apiSpec/new?filename=Ents_EntityManager__ctor.md&amp;value=---%0Auid%3A%20Ents.EntityManager.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/rgracari/Ents/blob/main/Ents/EntityManager.cs/#L24">View Source</a>
+  </span>
+  <a id="Ents_EntityManager__ctor_" data-uid="Ents.EntityManager.#ctor*"></a>
+  <h4 id="Ents_EntityManager__ctor" data-uid="Ents.EntityManager.#ctor">EntityManager()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EntityManager()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/rgracari/Ents/new/main/apiSpec/new?filename=Ents_EntityManager_Count.md&amp;value=---%0Auid%3A%20Ents.EntityManager.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/rgracari/Ents/blob/main/Ents/EntityManager.cs/#L22">View Source</a>
+  </span>
+  <a id="Ents_EntityManager_Count_" data-uid="Ents.EntityManager.Count*"></a>
+  <h4 id="Ents_EntityManager_Count" data-uid="Ents.EntityManager.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Get the number of all the entities that has been registerd in the Entity Manager.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/rgracari/Ents/new/main/apiSpec/new?filename=Ents_EntityManager_AddComponent_Ents_Entity_System_Type_.md&amp;value=---%0Auid%3A%20Ents.EntityManager.AddComponent(Ents.Entity%2CSystem.Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/rgracari/Ents/blob/main/Ents/EntityManager.cs/#L80">View Source</a>
+  </span>
+  <a id="Ents_EntityManager_AddComponent_" data-uid="Ents.EntityManager.AddComponent*"></a>
+  <h4 id="Ents_EntityManager_AddComponent_Ents_Entity_System_Type_" data-uid="Ents.EntityManager.AddComponent(Ents.Entity,System.Type)">AddComponent(Entity, Type)</h4>
+  <div class="markdown level1 summary"><p>Adding a component type in the list of component types associated to an entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddComponent(Entity entity, Type componentType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Ents.Entity.html">Entity</a></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity that will receive the component type. (Must exist)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Type</span></td>
+        <td><span class="parametername">componentType</span></td>
+        <td><p>The type of the component that will be inserted to the entity. (Must inherit from IComponent)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Ents_EntityManager_AddComponent_Ents_Entity_System_Type__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You shoud must use typeof(YourComponent) for the component type.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/rgracari/Ents/new/main/apiSpec/new?filename=Ents_EntityManager_Create.md&amp;value=---%0Auid%3A%20Ents.EntityManager.Create%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/rgracari/Ents/blob/main/Ents/EntityManager.cs/#L35">View Source</a>
+  </span>
+  <a id="Ents_EntityManager_Create_" data-uid="Ents.EntityManager.Create*"></a>
+  <h4 id="Ents_EntityManager_Create" data-uid="Ents.EntityManager.Create">Create()</h4>
+  <div class="markdown level1 summary"><p>Create an unique entity and match him with a list empty of types components.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Entity Create()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Ents.Entity.html">Entity</a></td>
+        <td><p>An brand new Entity struct with an unique ID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/rgracari/Ents/new/main/apiSpec/new?filename=Ents_EntityManager_Destroy_Ents_Entity_.md&amp;value=---%0Auid%3A%20Ents.EntityManager.Destroy(Ents.Entity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/rgracari/Ents/blob/main/Ents/EntityManager.cs/#L58">View Source</a>
+  </span>
+  <a id="Ents_EntityManager_Destroy_" data-uid="Ents.EntityManager.Destroy*"></a>
+  <h4 id="Ents_EntityManager_Destroy_Ents_Entity_" data-uid="Ents.EntityManager.Destroy(Ents.Entity)">Destroy(Entity)</h4>
+  <div class="markdown level1 summary"><p>Destroy an given entity that must exists for the entityManager. The entity Id will now
+be free to be taken for another entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Destroy(Entity entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Ents.Entity.html">Entity</a></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity needed to be destroy. (must exist)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/rgracari/Ents/new/main/apiSpec/new?filename=Ents_EntityManager_EntityHasComponent_Ents_Entity_System_Type_.md&amp;value=---%0Auid%3A%20Ents.EntityManager.EntityHasComponent(Ents.Entity%2CSystem.Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/rgracari/Ents/blob/main/Ents/EntityManager.cs/#L111">View Source</a>
+  </span>
+  <a id="Ents_EntityManager_EntityHasComponent_" data-uid="Ents.EntityManager.EntityHasComponent*"></a>
+  <h4 id="Ents_EntityManager_EntityHasComponent_Ents_Entity_System_Type_" data-uid="Ents.EntityManager.EntityHasComponent(Ents.Entity,System.Type)">EntityHasComponent(Entity, Type)</h4>
+  <div class="markdown level1 summary"><p>Check if an given entity has a special compononent type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EntityHasComponent(Entity entity, Type componentType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Ents.Entity.html">Entity</a></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>An entity that must be created from the entityManager hitself.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Type</span></td>
+        <td><span class="parametername">componentType</span></td>
+        <td><p>The type of an component. (Must inherit from IComponent)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the component exists in the entity, false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/rgracari/Ents/new/main/apiSpec/new?filename=Ents_EntityManager_GetEntityComponents_Ents_Entity_.md&amp;value=---%0Auid%3A%20Ents.EntityManager.GetEntityComponents(Ents.Entity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/rgracari/Ents/blob/main/Ents/EntityManager.cs/#L119">View Source</a>
+  </span>
+  <a id="Ents_EntityManager_GetEntityComponents_" data-uid="Ents.EntityManager.GetEntityComponents*"></a>
+  <h4 id="Ents_EntityManager_GetEntityComponents_Ents_Entity_" data-uid="Ents.EntityManager.GetEntityComponents(Ents.Entity)">GetEntityComponents(Entity)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Type&gt; GetEntityComponents(Entity entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Ents.Entity.html">Entity</a></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Type</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/rgracari/Ents/new/main/apiSpec/new?filename=Ents_EntityManager_RemoveComponent_Ents_Entity_System_Type_.md&amp;value=---%0Auid%3A%20Ents.EntityManager.RemoveComponent(Ents.Entity%2CSystem.Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/rgracari/Ents/blob/main/Ents/EntityManager.cs/#L98">View Source</a>
+  </span>
+  <a id="Ents_EntityManager_RemoveComponent_" data-uid="Ents.EntityManager.RemoveComponent*"></a>
+  <h4 id="Ents_EntityManager_RemoveComponent_Ents_Entity_System_Type_" data-uid="Ents.EntityManager.RemoveComponent(Ents.Entity,System.Type)">RemoveComponent(Entity, Type)</h4>
+  <div class="markdown level1 summary"><p>Remove an given component type from an entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveComponent(Entity entity, Type componentType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Ents.Entity.html">Entity</a></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity that will loose the component type. (Must exist)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Type</span></td>
+        <td><span class="parametername">componentType</span></td>
+        <td><p>The type of the component that will be removed from the entity. (Must inherit from IComponent)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>If the component has been removed successfuly return true otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/rgracari/Ents/new/main/apiSpec/new?filename=Ents_EntityManager_ToString.md&amp;value=---%0Auid%3A%20Ents.EntityManager.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/rgracari/Ents/blob/main/Ents/EntityManager.cs/#L136">View Source</a>
+  </span>
+  <a id="Ents_EntityManager_ToString_" data-uid="Ents.EntityManager.ToString*"></a>
+  <h4 id="Ents_EntityManager_ToString" data-uid="Ents.EntityManager.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/rgracari/Ents/new/main/apiSpec/new?filename=Ents_EntityManager.md&amp;value=---%0Auid%3A%20Ents.EntityManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/rgracari/Ents/blob/main/Ents/EntityManager.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

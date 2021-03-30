@@ -53,7 +53,19 @@ namespace Ents.Tests
 
             componentManager.AddComponent(entity, componentType);
 
-            Assert.True(componentManager.EntityHasComponent(entity, componentType));
+            Assert.True(componentManager.HasComponent(entity, componentType));
+        }
+
+        [Fact]
+        public void AddComponent_ComponentWithArgs_HasComponentMustReturnTrue()
+        {
+            ComponentManager componentManager = new ComponentManager();
+            Entity entity = new Entity(0);
+            Type componentType = typeof(Position);
+
+            componentManager.AddComponent(entity, componentType, 1, 1);
+
+            Assert.True(componentManager.HasComponent(entity, componentType));
         }
 
         [Fact]
@@ -95,7 +107,7 @@ namespace Ents.Tests
             Entity entity = new Entity(0);
             Type componentType = typeof(Position);
 
-            Assert.False(componentManager.EntityHasComponent(entity, componentType));
+            Assert.False(componentManager.HasComponent(entity, componentType));
         }
 
         [Fact]
@@ -109,8 +121,8 @@ namespace Ents.Tests
             componentManager.AddComponent(entity, componentType2);
             componentManager.AddComponent(entity, componentType);
 
-            Assert.True(componentManager.EntityHasComponent(entity, componentType2));
-            Assert.True(componentManager.EntityHasComponent(entity, componentType));
+            Assert.True(componentManager.HasComponent(entity, componentType2));
+            Assert.True(componentManager.HasComponent(entity, componentType));
         }
 
         [Theory]
@@ -127,7 +139,7 @@ namespace Ents.Tests
 
             componentManager.AddComponent(goodEntity, componentType);
 
-            Assert.False(componentManager.EntityHasComponent(wrongEntity, componentType));
+            Assert.False(componentManager.HasComponent(wrongEntity, componentType));
         }
 
         [Fact]
@@ -140,7 +152,7 @@ namespace Ents.Tests
             componentManager.AddComponent(entity, componentType);
             componentManager.RemoveComponent(entity, componentType);
 
-            Assert.False(componentManager.EntityHasComponent(entity, componentType));
+            Assert.False(componentManager.HasComponent(entity, componentType));
         }
 
         [Fact]
@@ -175,6 +187,27 @@ namespace Ents.Tests
             Type componentType = typeof(Position);
 
             Assert.Throws<ComponentMustBeNotNull>(() => componentManager.RemoveComponent(entity, null));
+        }
+
+        [Fact]
+        public void GetComponent_BasicComponentExist_ReturnSameComponent()
+        {
+            ComponentManager componentManager = new ComponentManager();
+            Entity entity = new Entity(0);
+            componentManager.AddComponent(entity, typeof(Position));
+
+            IComponent expected = componentManager.GetComponent<Position>(entity);
+
+            Assert.Equal(new Position(), expected);
+        }
+
+        [Fact]
+        public void GetComponent_BasicComponentDoesNotExist_ThrowsEntityDoesNotHaveComponent()
+        {
+            ComponentManager componentManager = new ComponentManager();
+            Entity entity = new Entity(0);
+
+            Assert.Throws<EntityDoesNotHaveComponent>(() => componentManager.GetComponent<Position>(entity));
         }
     }
 }

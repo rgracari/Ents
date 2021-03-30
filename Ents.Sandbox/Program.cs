@@ -3,22 +3,20 @@
 // ECS      -> Archetypes, Queries, Components, Entities, Systems, Worlds, Groups
 // Advenced -> Order of group execution, struct/class dif, sharedComponent
 // Quality  -> profiling, tests, codecov, documentation
-// Generational arena
+
+///<summary>
+/// TODO:
+/// Write comments for ComponentManager
+/// Test if method<GenericType>() is better than method(typeof(type))
+/// 
+/// </summary>
 
 
-using Ents.Storage;
-using Ents.Storages;
 using System;
+
 /// <summary>
 /// 
 /// World world = new World()
-/// 
-/// Entity player = world.CreateEntity();
-/// world.AddComponent<Position>(player, 1.0, 1.0);
-/// 
-/// Entity player = world.CreateEntity(typeof(Position));
-/// 
-/// world.SetComponentData()
 /// 
 /// foreach (var entity in Registry.EntitiesWith<Mob>())
 /// {
@@ -66,19 +64,12 @@ namespace Ents.Sandbox
         static void Main(string[] args)
         {
             World world = new World();
-
-            Entity entity = world.CreateEntity();
-            world.AddComponent(entity, typeof(Velocity));
-            world.AddComponent(entity, typeof(Position));
-
             Entity entity1 = world.CreateEntity();
-            world.AddComponent(entity1, typeof(Velocity));
-            world.AddComponent(entity1, typeof(Position));
+            Entity entity2 = world.CreateEntity();
 
-            Console.WriteLine(world);
+            world.AddComponent(entity1, typeof(Position), 15, 15);
 
-            //world.DestroyEntity(entity);
-            world.DestroyEntity(entity);
+            world.GetComponent<Velocity>(entity1);
 
             Console.WriteLine(world);
         }

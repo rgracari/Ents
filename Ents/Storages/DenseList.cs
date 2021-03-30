@@ -138,7 +138,6 @@ namespace Ents.Storage
                 if (_lookup[i].HasValue)
                 {
                     int idData = _lookup[i].GetValueOrDefault();
-                    Console.WriteLine($"idData: {idData}");
 
                     stringBuilder.Append($"{i} -> [{_lookup[i]}]");
                     stringBuilder.AppendLine($" -> [{_data[idData]}]");

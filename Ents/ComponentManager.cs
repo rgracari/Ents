@@ -54,7 +54,17 @@ namespace Ents
             }
         }
 
-        public bool EntityHasComponent(Entity entity, Type componentType)
+        public T GetComponent<T>(Entity entity) where T : IComponent
+        {
+            if (!HasComponent(entity, typeof(T)))
+            {
+                throw new EntityDoesNotHaveComponent("The entity does not have the component.");
+            }
+
+            return (T)_components[typeof(T)].Get(entity.id);
+        }
+
+        public bool HasComponent(Entity entity, Type componentType)
         {
             if (!_components.ContainsKey(componentType))
             {

@@ -39,6 +39,15 @@ namespace Ents
             _components.AddComponent(entity, componentType, args);
         }
 
+        public void GetComponent<T>(Entity entity)
+        {
+            // TODO: NEED TO FINSIH THIS METHOD
+            if (_entities.EntityHasComponent(entity, typeof(T)) == true)
+            {
+                //_components.Get
+            }
+        }
+
         public void RemoveComponent(Entity entity, Type componentType)
         {
             _entities.RemoveComponent(entity, componentType);
@@ -50,4 +59,12 @@ namespace Ents
             return $"Entities:\n{_entities}\nComponents:\n {_components}";
         }
     }
+
+    /*public class EntityIdOutOfRange : Exception
+    {
+        public EntityIdOutOfRange(string message)
+            : base(message)
+        {
+        }
+    }*/
 }

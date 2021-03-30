@@ -27,7 +27,7 @@ namespace Ents.Tests
         }
 
         [Fact]
-        public void AddComponent_re()
+        public void AddComponent_BasicComponentWithoutArgs()
         {
             World world = new World();
 

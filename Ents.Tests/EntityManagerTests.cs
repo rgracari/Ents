@@ -194,6 +194,29 @@ namespace Ents.Tests
             Assert.Throws<EntityIdDoesNotExist>(() => entityManager.EntityHasComponent(wrongEntity, componentType));
         }
 
+        [Fact]
+        public void IsEntityExists_EntityAlreadyCreated_ReturnTrue()
+        {
+            EntityManager entityManager = new EntityManager();
+            Entity entity = entityManager.Create();
+
+            bool result = entityManager.IsEntityExists(entity);
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void IsEntityExists_EntityDoesNotExists_ReturnFalse()
+        {
+            EntityManager entityManager = new EntityManager();
+            // This entity exist on the scope but not for entityManager
+            Entity entity = new Entity(0);
+
+            bool result = entityManager.IsEntityExists(entity);
+
+            Assert.False(result);
+        }
+
         [Theory]
         [InlineData(typeof(GoodPositionTest))]
         [InlineData(typeof(GoodVelocityTest))]

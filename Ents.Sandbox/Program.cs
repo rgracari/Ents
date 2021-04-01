@@ -61,9 +61,10 @@ namespace Ents.Sandbox
 
             world.AddComponent(entity1, typeof(Position), 15, 15);
 
-            world.GetComponent<Velocity>(entity1);
+            Position res = world.GetComponent<Position>(entity1);
 
             Console.WriteLine(world);
+            Console.WriteLine(res);
         }
     }
 }

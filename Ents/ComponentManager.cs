@@ -79,7 +79,7 @@ namespace Ents
         /// </summary>
         /// <typeparam name="T">The type of the component wanted to be retrived. Must be a IComponent.</typeparam>
         /// <param name="entity">The Entity that own the component.</param>
-        /// <returns>The component </returns>
+        /// <returns>The component trying to be get.</returns>
         public T GetComponent<T>(Entity entity) where T : IComponent
         {
             if (!HasComponent(entity, typeof(T)))

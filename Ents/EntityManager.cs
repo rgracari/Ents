@@ -115,6 +115,17 @@ namespace Ents
             return _entities[entity].Exists((type) => type == componentType);
         }
 
+        /// <summary>
+        /// Check if the entity has been created already.
+        /// If it's the case the entity id will not be available until it's been destroyed.
+        /// </summary>
+        /// <param name="entity">The entity we want to test.</param>
+        /// <returns>True if it already exists False otherwise.</returns>
+        public bool IsEntityExists(Entity entity)
+        {
+            return _entities.ContainsKey(entity);
+        }
+
         // Mettre des commentaires
         public List<Type> GetEntityComponents(Entity entity)
         {

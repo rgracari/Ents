@@ -59,10 +59,10 @@ namespace Ents
                 throw new ComponentMustBeNotNull("Component must be not null and implement the IComponent interface");
             }
 
-            if (!IsDenseListOfTypeAlreadyExists(componentType))
+            /*if (!IsDenseListOfTypeAlreadyExists(componentType))
             {
                 throw new DenseListOfTypeDoesNotExists("The DenseList of the type requested doesn't exists yet.");
-            }
+            }*/
 
             try
             {

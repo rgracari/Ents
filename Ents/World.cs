@@ -79,6 +79,12 @@ namespace Ents
             return _components.GetComponents(entity);
         }
 
+        /// <summary>
+        /// Remove a defined component from an Entity. The entity must exist and the component
+        /// must also already been added to the entity.
+        /// </summary>
+        /// <param name="entity">The Entity that own the component.</param>
+        /// <param name="componentType">The defined type of the component that will be removed from the entity.</param>
         public void RemoveComponent(Entity entity, Type componentType)
         {
             _entities.RemoveComponent(entity, componentType);

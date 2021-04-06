@@ -156,13 +156,13 @@ namespace Ents.Tests
         }
 
         [Fact]
-        public void RemoveComponent_AComponentThatDoesNotExist_ThrowDenseListOfTypeDoesNotExists()
+        public void RemoveComponent_AComponentThatDoesNotExist_ThrowEntityDoesNotHaveComponent()
         {
             ComponentManager componentManager = new ComponentManager();
             Entity entity = new Entity(0);
             Type componentType = typeof(Position);
 
-            Assert.Throws<DenseListOfTypeDoesNotExists>(() => componentManager.RemoveComponent(entity, componentType));
+            Assert.Throws<EntityDoesNotHaveComponent>(() => componentManager.RemoveComponent(entity, componentType));
         }
 
         [Fact]

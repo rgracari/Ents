@@ -241,5 +241,67 @@ namespace Ents.Tests
             Assert.Equal(expected1, actual1);
             Assert.Equal(expected2, actual2);
         }
+
+        [Fact]
+        public void RemoveComponent_RemoveOneComponentFromEntity_ListWithOneLessComponent()
+        {
+            World world = new World();
+            Entity entity = world.CreateEntity();
+            Position position = new Position(5, 5);
+            Velocity velocity = new Velocity(51, 51);
+            world.AddComponent(entity, position.GetType(), position.x, position.y);
+            world.AddComponent(entity, velocity.GetType(), velocity.x, velocity.y);
+            List<IComponent> expected = new List<IComponent> { velocity };
+
+            world.RemoveComponent(entity, typeof(Position));
+            List<IComponent> actual = world.GetComponents(entity);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void RemoveComponent_RemoveTwoComponentFromEntity_ListZeroComponent()
+        {
+            World world = new World();
+            Entity entity = world.CreateEntity();
+            Position position = new Position(5, 5);
+            Velocity velocity = new Velocity(51, 51);
+            world.AddComponent(entity, position.GetType(), position.x, position.y);
+            world.AddComponent(entity, velocity.GetType(), velocity.x, velocity.y);
+            List<IComponent> expected = new List<IComponent> { };
+
+            world.RemoveComponent(entity, typeof(Position));
+            world.RemoveComponent(entity, typeof(Velocity));
+            List<IComponent> actual = world.GetComponents(entity);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void RemoveComponent_RemoveComponentThatDoesNotExist_ThrowsEntityDoesNotHaveComponent()
+        {
+            World world = new World();
+            Entity entity = world.CreateEntity();
+
+            Assert.Throws<EntityDoesNotHaveComponent>(() => world.RemoveComponent(entity, typeof(Position)));
+        }
+
+        [Fact]
+        public void RemoveComponent_RemoveComponentFromEntityThatDoesNotExist_ThrowsEntityIdDoesNotExist()
+        {
+            World world = new World();
+            Entity entity = new Entity(0);
+
+            Assert.Throws<EntityIdDoesNotExist>(() => world.RemoveComponent(entity, typeof(Position)));
+        }
+
+        [Fact]
+        public void RemoveComponent_RemoveComponentThatIsNotIComponent_ThrowsEntityDoesNotHaveComponent()
+        {
+            World world = new World();
+            Entity entity = world.CreateEntity();
+
+            Assert.Throws<EntityDoesNotHaveComponent>(() => world.RemoveComponent(entity, typeof(WrongPosition)));
+        }
     }
 }

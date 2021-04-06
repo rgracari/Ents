@@ -68,6 +68,12 @@ namespace Ents
             return _components.GetComponent<T>(entity);
         }
 
+        /// <summary>
+        /// Get all the IComponent from associated to an existing Entity.
+        /// This method is a facade to the ComponentManager class.
+        /// </summary>
+        /// <param name="entity">The Entity that owns the components.</param>
+        /// <returns>The list of components that are owned by the entity.</returns>
         public List<IComponent> GetComponents(Entity entity)
         {
             return _components.GetComponents(entity);

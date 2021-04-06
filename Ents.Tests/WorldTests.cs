@@ -169,5 +169,77 @@ namespace Ents.Tests
 
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void GetComponents_EntityWithTwoComponents_ListWithTwoComponents()
+        {
+            World world = new World();
+            Entity entity = world.CreateEntity();
+            Position position = new Position(40, 40);
+            Velocity velocity = new Velocity(20, 20);
+            world.AddComponent(entity, position.GetType(), position.x, position.y);
+            world.AddComponent(entity, velocity.GetType(), velocity.x, velocity.y);
+            List<IComponent> expected = new List<IComponent> { position, velocity };
+
+            List<IComponent> actual = world.GetComponents(entity);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetComponents_TwoEntityWithTwoComponents_TwoListWithComponents()
+        {
+            World world = new World();
+            Entity entity1 = world.CreateEntity();
+            Entity entity2 = world.CreateEntity();
+
+            Position position1 = new Position(40, 40);
+            Velocity velocity1 = new Velocity(20, 20);
+
+            Velocity velocity2 = new Velocity(5, 5);
+
+            world.AddComponent(entity1, position1.GetType(), position1.x, position1.y);
+            world.AddComponent(entity1, velocity1.GetType(), velocity1.x, velocity1.y);
+
+            world.AddComponent(entity2, velocity2.GetType(), velocity2.x, velocity2.y);
+
+            List<IComponent> expected1 = new List<IComponent> { position1, velocity1 };
+            List<IComponent> expected2 = new List<IComponent> { velocity2 };
+
+            List<IComponent> actual1 = world.GetComponents(entity1);
+            List<IComponent> actual2 = world.GetComponents(entity2);
+
+            Assert.Equal(expected1, actual1);
+            Assert.Equal(expected2, actual2);
+        }
+
+        [Fact]
+        public void GetComponents_TwoEntityWithTwoComponentsAndOneDeleted_OneListWithComponents()
+        {
+            World world = new World();
+            Entity entity1 = world.CreateEntity();
+            Entity entity2 = world.CreateEntity();
+
+            Position position1 = new Position(40, 40);
+            Velocity velocity1 = new Velocity(20, 20);
+
+            Velocity velocity2 = new Velocity(5, 5);
+
+            world.AddComponent(entity1, position1.GetType(), position1.x, position1.y);
+            world.AddComponent(entity1, velocity1.GetType(), velocity1.x, velocity1.y);
+
+            world.DestroyEntity(entity1);
+
+            world.AddComponent(entity2, velocity2.GetType(), velocity2.x, velocity2.y);
+
+            List<IComponent> expected1 = new List<IComponent> { };
+            List<IComponent> expected2 = new List<IComponent> { velocity2 };
+
+            List<IComponent> actual1 = world.GetComponents(entity1);
+            List<IComponent> actual2 = world.GetComponents(entity2);
+
+            Assert.Equal(expected1, actual1);
+            Assert.Equal(expected2, actual2);
+        }
     }
 }

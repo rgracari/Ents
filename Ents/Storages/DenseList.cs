@@ -99,6 +99,15 @@ namespace Ents.Storage
         }
 
         /// <summary>
+        /// Return all the data in the DenseList.
+        /// </summary>
+        /// <returns>All the data encapsulated in a list.</returns>
+        public List<T> GetAll()
+        {
+            return _data;
+        }
+
+        /// <summary>
         /// Determine if there is data associated to an ID.
         /// Internally we need to know if there is data in the lookup table and in the data table.
         /// </summary>

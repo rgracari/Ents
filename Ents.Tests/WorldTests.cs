@@ -41,15 +41,51 @@ namespace Ents.Tests
             Assert.Equal(expected, actual);
         }
 
-        /*[Fact]
-        public void DestroyEntity_()
+        [Fact]
+        public void DestroyEntity_EntityWithoutComponent_EntityMustBeFree()
         {
             World world = new World();
             Entity entity = world.CreateEntity();
 
             world.DestroyEntity(entity);
 
-        }*/
+            Assert.False(world.IsEntityAlive(entity));
+        }
+
+        [Fact]
+        public void DestroyEntity_EntityWithOneComponent_EntityMustBeFreeAndComponentDeleted()
+        {
+            World world = new World();
+            Entity entity = world.CreateEntity();
+            world.AddComponent(entity, typeof(Position), 15, 15);
+
+            world.DestroyEntity(entity);
+
+            Assert.False(world.IsEntityAlive(entity));
+            //world.
+        }
+
+        [Fact]
+        public void IsEntityAlive_EntityIsAlive_ReturnTrue()
+        {
+            World world = new World();
+            Entity entity = world.CreateEntity();
+
+            bool actual = world.IsEntityAlive(entity);
+
+            Assert.True(actual);
+        }
+
+        [Fact]
+        public void IsEntityAlive_EntityDoesNotExist_ReturnFalse()
+        {
+            World world = new World();
+            Entity entity = new Entity(0);
+
+            bool actual = world.IsEntityAlive(entity);
+
+            Assert.False(actual);
+        }
 
         [Fact]
         public void AddComponent_BasicComponent_ComponentShouldBeAdded()

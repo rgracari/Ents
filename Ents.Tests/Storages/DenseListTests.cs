@@ -9,9 +9,6 @@ namespace Ents.Tests.Storages
 {
     public class DenseListTests
     {
-        /// <summary>
-        /// CONSTRUCTOR
-        /// </summary>
         [Fact]
         public void Constructor_Nothing_CreateObject()
         {
@@ -20,9 +17,6 @@ namespace Ents.Tests.Storages
             Assert.NotNull(denseList);
         }
 
-        /// <summary>
-        /// ADD
-        /// </summary>
         [Theory]
         [InlineData(10, "data")]
         [InlineData(5550, "pedro")]
@@ -104,9 +98,6 @@ namespace Ents.Tests.Storages
             });
         }
 
-        /// <summary>
-        /// GET
-        /// </summary>
         [Theory]
         [InlineData(0, true)]
         [InlineData(125, true)]
@@ -144,9 +135,50 @@ namespace Ents.Tests.Storages
             });
         }
 
-        /// <summary>
-        /// GET
-        /// </summary>
+        [Fact]
+        public void GetAll_EmptyDenseList_ReturnEmptyList()
+        {
+            DenseList<string> denseList = new DenseList<string>();
+            List<string> expected = new List<string>();
+
+            List<string> actual = denseList.GetAll();
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("data1", 0)]
+        [InlineData("", 0)]
+        [InlineData("data2", 150)]
+        [InlineData("data4", 30)]
+        public void GetAll_OneItemDenseList_ReturnListWithTheItem(string data, int id)
+        {
+            DenseList<string> denseList = new DenseList<string>();
+            denseList.Add(id, data);
+            List<string> expected = new List<string> { data };
+
+            List<string> actual = denseList.GetAll();
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("data1", 0, "data2", 15)]
+        [InlineData("data3", 35, "data4", 128)]
+        [InlineData("data5", 445, "data6", 889)]
+        [InlineData("data5", 40, "data6", 35)]
+        public void GetAll_TwoItemsWithSpaceBetween_ReturnListWithTheseItems(string data1, int id1, string data2, int id2)
+        {
+            DenseList<string> denseList = new DenseList<string>();
+            denseList.Add(id1, data1);
+            denseList.Add(id2, data2);
+            List<string> expected = new List<string> { data1, data2 };
+
+            List<string> actual = denseList.GetAll();
+
+            Assert.Equal(expected, actual);
+        }
+
         [Fact]
         public void Remove_RemovingBasicData_CountShouldDecrease()
         {

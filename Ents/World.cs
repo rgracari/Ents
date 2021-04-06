@@ -46,6 +46,18 @@ namespace Ents
         }
 
         /// <summary>
+        /// Check if the entity has been created already.
+        /// If it's the case the entity id will not be available until it's been destroyed.
+        /// This method is a facade to the EntityManager IsEntityAlive.
+        /// </summary>
+        /// <param name="entity">The entity we want to test.</param>
+        /// <returns>True if it already exists False otherwise.</returns>
+        public bool IsEntityAlive(Entity entity)
+        {
+            return _entities.IsEntityAlive(entity);
+        }
+
+        /// <summary>
         /// Add a component to an existing entity.
         /// </summary>
         /// <param name="entity">The Entity that will own the component.</param>

@@ -195,12 +195,12 @@ namespace Ents.Tests
         }
 
         [Fact]
-        public void IsEntityExists_EntityAlreadyCreated_ReturnTrue()
+        public void IsEntityAlive_EntityAlreadyCreated_ReturnTrue()
         {
             EntityManager entityManager = new EntityManager();
             Entity entity = entityManager.Create();
 
-            bool result = entityManager.IsEntityExists(entity);
+            bool result = entityManager.IsEntityAlive(entity);
 
             Assert.True(result);
         }
@@ -212,7 +212,7 @@ namespace Ents.Tests
             // This entity exist on the scope but not for entityManager
             Entity entity = new Entity(0);
 
-            bool result = entityManager.IsEntityExists(entity);
+            bool result = entityManager.IsEntityAlive(entity);
 
             Assert.False(result);
         }

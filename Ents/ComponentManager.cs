@@ -109,6 +109,12 @@ namespace Ents
             return componentsOfEntity;
         }
 
+        public void GetComponentsOfType(Type componentType)
+        {
+            CreateDenseListIfTypeIsNotRegistered(componentType);
+
+        }
+
         /// <summary>
         /// Check if the Entity is associated to a specified Component.
         /// </summary>

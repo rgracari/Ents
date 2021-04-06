@@ -121,7 +121,7 @@ namespace Ents
         /// </summary>
         /// <param name="entity">The entity we want to test.</param>
         /// <returns>True if it already exists False otherwise.</returns>
-        public bool IsEntityExists(Entity entity)
+        public bool IsEntityAlive(Entity entity)
         {
             return _entities.ContainsKey(entity);
         }

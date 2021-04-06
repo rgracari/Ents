@@ -209,5 +209,47 @@ namespace Ents.Tests
 
             Assert.Throws<EntityDoesNotHaveComponent>(() => componentManager.GetComponent<Position>(entity));
         }
+
+        [Fact]
+        public void GetComponents_OneComponentEntity_ReturnAListWithTheComponent()
+        {
+            ComponentManager componentManager = new ComponentManager();
+            Entity entity = new Entity(0);
+            Position component = new Position(15, 15);
+            componentManager.AddComponent(entity, component.GetType(), component.x, component.y);
+            List<IComponent> expected = new List<IComponent> { component };
+
+            List<IComponent> actual = componentManager.GetComponents(entity);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetComponents_TwoComponentsEntity_ReturnAListWithTheTwoComponents()
+        {
+            ComponentManager componentManager = new ComponentManager();
+            Entity entity = new Entity(0);
+            Position position = new Position(15, 15);
+            Velocity velocity = new Velocity(30, 30);
+            componentManager.AddComponent(entity, position.GetType(), position.x, position.y);
+            componentManager.AddComponent(entity, velocity.GetType(), velocity.x, velocity.y);
+            List<IComponent> expected = new List<IComponent> { position, velocity };
+
+            List<IComponent> actual = componentManager.GetComponents(entity);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetComponents_NoComponentEntity_ReturnAnEmptyList()
+        {
+            ComponentManager componentManager = new ComponentManager();
+            Entity entity = new Entity(0);
+            List<IComponent> expected = new List<IComponent>();
+
+            List<IComponent> actual = componentManager.GetComponents(entity);
+
+            Assert.Equal(expected, actual);
+        }
     }
 }

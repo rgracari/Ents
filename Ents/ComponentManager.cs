@@ -50,7 +50,7 @@ namespace Ents
         /// Remove a component in the storage where it belong to.
         /// You will be not able to access it from the entity.
         /// </summary>
-        /// <param name="entity">The Entity that own the component.</param>
+        /// <param name="entity">The Entity that owns the component.</param>
         /// <param name="componentType">The defined type of the component.</param>
         public void RemoveComponent(Entity entity, Type componentType)
         {
@@ -78,7 +78,7 @@ namespace Ents
         /// Retrieve the component asked by its type from an Entity. The component must exist.
         /// </summary>
         /// <typeparam name="T">The type of the component wanted to be retrived. Must be a IComponent.</typeparam>
-        /// <param name="entity">The Entity that own the component.</param>
+        /// <param name="entity">The Entity that owns the component.</param>
         /// <returns>The component trying to be get.</returns>
         public T GetComponent<T>(Entity entity) where T : IComponent
         {
@@ -88,6 +88,25 @@ namespace Ents
             }
 
             return (T)_components[typeof(T)].Get(entity.id);
+        }
+
+        /// <summary>
+        /// Get all the IComponent from associated to an existing Entity.
+        /// </summary>
+        /// <param name="entity">The Entity that owns the components.</param>
+        /// <returns>The list of components that are owned by the entity.</returns>
+        public List<IComponent> GetComponents(Entity entity)
+        {
+            List<IComponent> componentsOfEntity = new List<IComponent>();
+
+            foreach (var item in _components)
+            {
+                if (item.Value.HasData(entity.id))
+                {
+                    componentsOfEntity.Add(item.Value.Get(entity.id));
+                }
+            }
+            return componentsOfEntity;
         }
 
         /// <summary>

@@ -143,5 +143,31 @@ namespace Ents.Tests
 
             Assert.Throws<EntityDoesNotHaveComponent>(() => world.GetComponent<Velocity>(entity));  
         }
+
+        [Fact]
+        public void GetComponents_EntityWithoutComponents_EmptyIComponentList()
+        {
+            World world = new World();
+            Entity entity = world.CreateEntity();
+            List<IComponent> expected = new List<IComponent>();
+
+            List<IComponent> actual = world.GetComponents(entity);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetComponents_EntityWithOneComponent_ListWithTheComponent()
+        {
+            World world = new World();
+            Entity entity = world.CreateEntity();
+            Position component = new Position(40, 40);
+            world.AddComponent(entity, component.GetType(), component.x, component.y);
+            List<IComponent> expected = new List<IComponent> { component };
+
+            List<IComponent> actual = world.GetComponents(entity);
+
+            Assert.Equal(expected, actual);
+        }
     }
 }

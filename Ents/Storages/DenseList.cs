@@ -97,7 +97,7 @@ namespace Ents.Storage
         {
             return _data[GetDataId(id)];
         }
-        
+
         /// <summary>
         /// Determine if there is data associated to an ID.
         /// Internally we need to know if there is data in the lookup table and in the data table.
@@ -125,10 +125,6 @@ namespace Ents.Storage
             return _lookup[id] ?? throw new NoDataAssociatedWithThisLookupId("There is no data associated with this id");
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns>A string representing the storage.</returns>
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();

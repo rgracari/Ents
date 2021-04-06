@@ -68,6 +68,11 @@ namespace Ents
             return _components.GetComponent<T>(entity);
         }
 
+        public List<IComponent> GetComponents(Entity entity)
+        {
+            return _components.GetComponents(entity);
+        }
+
         public void RemoveComponent(Entity entity, Type componentType)
         {
             _entities.RemoveComponent(entity, componentType);

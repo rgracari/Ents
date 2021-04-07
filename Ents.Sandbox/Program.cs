@@ -4,67 +4,41 @@
 // Advenced -> Order of group execution, struct/class dif, sharedComponent
 // Quality  -> profiling, tests, codecov, documentation
 
+using Ents.Sandbox.Components;
 using System;
+using System.Collections.Generic;
 
 /// <summary>
-/// 
 /// World world = new World()
 /// 
 /// foreach (var entity in Registry.EntitiesWith<Mob>())
 /// {
 ///     ref var mob = ref entity.Get<Mob>();
-/// 
 /// </summary>
+
 namespace Ents.Sandbox
 {
-    public struct Position : IComponent
-    {
-        public int x;
-        public int y;
-
-        public Position(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-
-        public override string ToString()
-        {
-            return $"Position -> x: {x}, y: {y}";
-        }
-    }
-
-    public struct Velocity : IComponent
-    {
-        public int x;
-        public int y;
-
-        public Velocity(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-
-        public override string ToString()
-        {
-            return $"Velocity -> x: {x}, y: {y}";
-        }
-    }
-
     public class Program
     {
         static void Main(string[] args)
         {
             World world = new World();
-            Entity entity1 = world.CreateEntity();
-            Entity entity2 = world.CreateEntity();
 
-            world.AddComponent(entity1, typeof(Position), 15, 15);
+            world.CreateEntity();
+            world.CreateEntity();
+            Entity entity = world.CreateEntity();
+            world.CreateEntity();
 
-            Position res = world.GetComponent<Position>(entity1);
+            world.DestroyEntity(entity);
 
-            Console.WriteLine(world);
-            Console.WriteLine(res);
+            Query query = new Query();
+
+            foreach (Entity item in query.Iterate(world))
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
+
+

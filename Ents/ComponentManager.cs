@@ -109,11 +109,12 @@ namespace Ents
             return componentsOfEntity;
         }
 
-        public void GetComponentsOfType(Type componentType)
+/*        public List<T> GetComponentsOfType<T>() where T : IComponent
         {
-            CreateDenseListIfTypeIsNotRegistered(componentType);
+            CreateDenseListIfTypeIsNotRegistered(typeof(T));
 
-        }
+            return _components[typeof(T)].GetAll();
+        }*/
 
         /// <summary>
         /// Check if the Entity is associated to a specified Component.

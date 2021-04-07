@@ -251,5 +251,30 @@ namespace Ents.Tests
 
             Assert.Equal(expected, actual);
         }
+
+        /*[Fact]
+        public void GetComponentsOfType_GetTypeWithoutComponent_EmptyList()
+        {
+            ComponentManager componentManager = new ComponentManager();
+            List<Position> expected = new List<Position>();
+
+            List<Position> actual = componentManager.GetComponentsOfType<Position>();
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetComponentsOfType_GetTypeWithOnComponent_ListWithOneItem()
+        {
+            ComponentManager componentManager = new ComponentManager();
+            Entity entity = new Entity(0);
+            Velocity component = new Velocity(3, 3);
+            componentManager.AddComponent(entity, component.GetType(), component.x, component.y);
+            List<Velocity> expected = new List<Velocity> { component };
+
+            List<Velocity> actual = componentManager.GetComponentsOfType<Velocity>();
+
+            Assert.Equal(expected, actual);
+        }*/
     }
 }

@@ -45,6 +45,11 @@ namespace Ents
             _entities.Destroy(entity);
         }
 
+        public List<Entity> GetEntities()
+        {
+            return _entities.GetEntities();
+        }
+
         /// <summary>
         /// Check if the entity has been created already.
         /// If it's the case the entity id will not be available until it's been destroyed.

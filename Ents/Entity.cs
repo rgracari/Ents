@@ -15,5 +15,10 @@ namespace Ents
         {
             this.id = id;
         }
+
+        public override string ToString()
+        {
+            return $"Entity:{id}";
+        }
     }
 }

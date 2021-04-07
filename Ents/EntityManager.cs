@@ -134,6 +134,18 @@ namespace Ents
             return _entities[entity];
         }
 
+        public List<Entity> GetEntities()
+        {
+            List<Entity> entitiesList = new List<Entity>();
+
+            foreach (var item in _entities.Keys)
+            {
+                entitiesList.Add(item);
+            }
+
+            return entitiesList;
+        }
+
         private void CheckIfEntityExists(Entity entity)
         {
             bool isEntityExist = _entities.ContainsKey(entity);

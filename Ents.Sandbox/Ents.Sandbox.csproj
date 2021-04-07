@@ -11,9 +11,4 @@
     <ProjectReference Include="..\Ents\Ents.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Components\" />
-    <Folder Include="Systems\" />
-  </ItemGroup>
-
 </Project>
